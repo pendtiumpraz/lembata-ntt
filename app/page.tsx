@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ServiceModal from "@/components/ServiceModal";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   const slides = [
     {
@@ -129,7 +131,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Service 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition">
+            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
               <div className="text-4xl mb-4">🗺️</div>
               <h3 className="text-2xl font-light text-gray-900 mb-4">
                 Biodiversity Sampling & Mapping
@@ -138,13 +140,16 @@ export default function Home() {
                 The skill of collecting biological data from the ocean—such as species observations, 
                 water samples, and habitat characteristics—and translating it into spatial maps.
               </p>
-              <a href="/services" className="text-blue-600 hover:text-blue-700 font-medium text-sm">
+              <button 
+                onClick={() => setActiveModal('biodiversity')}
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
+              >
                 Learn more →
-              </a>
+              </button>
             </div>
 
             {/* Service 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition">
+            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
               <div className="text-4xl mb-4">🌐</div>
               <h3 className="text-2xl font-light text-gray-900 mb-4">
                 Creation of a Digital Twin
@@ -153,13 +158,16 @@ export default function Home() {
                 Building a virtual, data-driven replica of a marine ecosystem that updates as new 
                 information comes in to simulate ocean conditions and conservation scenarios.
               </p>
-              <a href="/services" className="text-blue-600 hover:text-blue-700 font-medium text-sm">
+              <button 
+                onClick={() => setActiveModal('digitaltwin')}
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
+              >
                 Learn more →
-              </a>
+              </button>
             </div>
 
             {/* Service 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition">
+            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
               <div className="text-4xl mb-4">🧬</div>
               <h3 className="text-2xl font-light text-gray-900 mb-4">
                 eDNA Analysis
@@ -168,13 +176,71 @@ export default function Home() {
                 A method of detecting species by analyzing tiny genetic traces they leave behind in 
                 seawater—such as skin cells, waste, or mucus—enabling non-invasive identification.
               </p>
-              <a href="/services" className="text-blue-600 hover:text-blue-700 font-medium text-sm">
+              <button 
+                onClick={() => setActiveModal('edna')}
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
+              >
                 Learn more →
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Modals */}
+      <ServiceModal
+        isOpen={activeModal === 'biodiversity'}
+        onClose={() => setActiveModal(null)}
+        title="Biodiversity Sampling & Mapping"
+        icon="🗺️"
+        image="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80"
+        generalDescription={[
+          "The skill of collecting biological data from the ocean—such as species observations, water samples, and habitat characteristics—and translating it into spatial maps.",
+          "It includes using tools like transects, underwater surveys, drones, and sonar to document what lives where, how populations change over time, and which areas are ecologically sensitive or under threat."
+        ]}
+        technicalTitle="Technical Methodology"
+        technicalDescription={[
+          "The systematic acquisition of biological and ecological data from marine environments using standardized field methodologies.",
+          "Techniques include belt and line transects, quadrats, ROV/AUV-based video surveys, benthic grabs, and hydroacoustic profiling to quantify species presence, abundance, and community structure.",
+          "Collected data are georeferenced and integrated into GIS-based spatial models, enabling analysis of species distribution patterns, habitat suitability, alpha/beta diversity indices, and temporal shifts driven by environmental variables such as SST, salinity, chlorophyll, and substrate composition."
+        ]}
+      />
+
+      <ServiceModal
+        isOpen={activeModal === 'digitaltwin'}
+        onClose={() => setActiveModal(null)}
+        title="Creation of a Digital Twin"
+        icon="🌐"
+        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80"
+        generalDescription={[
+          "Building a virtual, data-driven replica of a marine ecosystem that updates as new information comes in.",
+          "A digital twin can simulate ocean conditions, species movement, human impact (e.g., fishing, pollution), and conservation scenarios—allowing stakeholders to test decisions before acting in the real environment."
+        ]}
+        technicalTitle="Technical Implementation"
+        technicalDescription={[
+          "The development of a dynamic, computationally coupled virtual model of a marine ecosystem that assimilates real-time and historical observational datasets.",
+          "A digital twin integrates physical oceanographic models (e.g., ROMS, HYCOM), biogeochemical cycles, habitat layers, and biological population models, with continuous updates from sensors, remote sensing, and field surveys.",
+          "It enables predictive simulations of ecosystem responses to perturbations—such as fishing pressure, nutrient loading, climate-driven variability, or habitat restoration—supporting scenario testing, forecasting, and adaptive management based on feedback loops between the model and in situ measurements."
+        ]}
+      />
+
+      <ServiceModal
+        isOpen={activeModal === 'edna'}
+        onClose={() => setActiveModal(null)}
+        title="eDNA (Environmental DNA) Analysis"
+        icon="🧬"
+        image="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&q=80"
+        generalDescription={[
+          "A method of detecting species by analyzing tiny genetic traces they leave behind in seawater—such as skin cells, waste, or mucus.",
+          "It enables non-invasive identification of marine species, including rare or hard-to-observe organisms. It helps track biodiversity changes quickly across large areas without the need for traditional capture or visual surveys."
+        ]}
+        technicalTitle="Technical Workflow"
+        technicalDescription={[
+          "A molecular approach that detects species by extracting and sequencing extracellular and cellular DNA fragments shed into the water column.",
+          "Workflows involve water filtration, DNA extraction, and PCR-based amplification (qPCR, digital droplet PCR) or metabarcoding using universal markers (e.g., COI, 12S, 16S rRNA), followed by high-throughput sequencing and bioinformatic taxonomic assignment against curated reference databases.",
+          "eDNA enables high-sensitivity detection of cryptic, rare, or low-density taxa, supports community composition profiling, and can quantify relative abundance signals—while minimizing spatial disturbance and bypassing traditional capture-based sampling constraints."
+        ]}
+      />
 
       {/* View from Lembata - Photo Grid */}
       <section id="explore" className="max-w-7xl mx-auto px-6 py-16">

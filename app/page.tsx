@@ -95,25 +95,28 @@ export default function Home() {
         
         {/* Hero Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
-          <h1 className="text-6xl font-light text-white mb-6">
-            Marine Biodiversity Research in Lembata
+          <h1 className="text-4xl md:text-7xl font-light text-white mb-4 md:mb-6 leading-tight">
+            Marine Biodiversity<br className="hidden md:block" />
+            <span className="md:hidden"> </span>in the Coral Triangle
           </h1>
-          <div className="border-b-2 border-white w-40 mb-8"></div>
-          <p className="text-xl text-white max-w-3xl mb-8 leading-relaxed">
-            Advanced scientific methodologies for documenting and understanding marine ecosystems 
-            in the Coral Triangle. We offer three core services: Biodiversity Sampling & Mapping, 
-            Creation of Digital Twin ecosystems, and eDNA (Environmental DNA) Analysis.
+          <div className="border-b-2 border-white w-24 md:w-32 mb-6 md:mb-8"></div>
+          <p className="text-base md:text-xl text-white/90 max-w-xl md:max-w-2xl mb-8 md:mb-10 leading-relaxed">
+            <span className="block md:inline">Advanced research services </span>
+            <span className="hidden md:inline">for documenting and understanding marine ecosystems </span>
+            <span className="md:hidden">in Lembata, </span>
+            <span className="hidden md:inline">in Lembata, East Nusa Tenggara.</span>
+            <span className="md:hidden">East Nusa Tenggara</span>
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
             <a
               href="#services"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded text-sm font-medium transition shadow-lg"
+              className="inline-block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-lg text-sm font-medium transition shadow-lg hover:shadow-xl"
             >
               Our Services
             </a>
             <a
               href="#explore"
-              className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded text-sm font-medium transition shadow-lg"
+              className="inline-block text-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 md:px-8 py-3 rounded-lg text-sm font-medium transition"
             >
               Explore
             </a>

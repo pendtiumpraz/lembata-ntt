@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Street View Treks: Lembata Ocean - Exploring Marine Biodiversity",
-  description: "Take an underwater journey through the pristine waters of Lembata, East Nusa Tenggara. Explore coral reefs, marine life, and underwater ecosystems.",
+  title: "Econexus Foundation | Biodiversity Metrics for Climate and Nature Finance",
+  description: "Making biodiversity count in financial decisions. We turn biodiversity data into actionable insights for NGOs, corporations, and financial institutions.",
 };
 
 export default function RootLayout({

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
 
   const categories = [
     { id: "all", name: "All" },
@@ -11,19 +13,30 @@ export default function Gallery() {
     { id: "fish", name: "Marine Life" },
     { id: "underwater", name: "Underwater Scenes" },
     { id: "conservation", name: "Conservation Work" },
+    { id: "lembata", name: "Lembata Views" },
   ];
 
-  // Placeholder gallery items
   const galleryItems = [
-    { id: 1, category: "coral", title: "Vibrant Coral Gardens", description: "Healthy coral formations in Lembata waters" },
-    { id: 2, category: "fish", title: "Tropical Fish School", description: "Diverse fish species swimming together" },
-    { id: 3, category: "underwater", title: "Deep Blue Waters", description: "Crystal clear underwater visibility" },
-    { id: 4, category: "conservation", title: "Research in Action", description: "Marine biologists conducting surveys" },
-    { id: 5, category: "coral", title: "Soft Coral Colonies", description: "Colorful soft corals swaying with currents" },
-    { id: 6, category: "fish", title: "Sea Turtle Encounter", description: "Green sea turtle gliding through the reef" },
-    { id: 7, category: "underwater", title: "Reef Wall", description: "Dramatic vertical reef wall formation" },
-    { id: 8, category: "conservation", title: "Data Collection", description: "Underwater sampling equipment in use" },
-    { id: 9, category: "coral", title: "Hard Coral Diversity", description: "Various hard coral species" },
+    { id: 1, category: "conservation", title: "Coral Planting", description: "Diver working on coral restoration project", image: "/img/conservation-coral-planting-1.jpeg" },
+    { id: 2, category: "underwater", title: "Seagrass Meadow", description: "Healthy seagrass bed ecosystem", image: "/img/underwater-seagrass-bed.jpeg" },
+    { id: 3, category: "coral", title: "Reef & Fish", description: "Vibrant coral reef teeming with marine life", image: "/img/coral-reef-with-fish-1.jpeg" },
+    { id: 4, category: "conservation", title: "Artificial Reef", description: "Coral nursery structure for reef restoration", image: "/img/conservation-artificial-reef-1.jpeg" },
+    { id: 5, category: "conservation", title: "Reef Restoration", description: "Freediver working on reef rehabilitation", image: "/img/conservation-reef-restoration-1.jpeg" },
+    { id: 6, category: "coral", title: "Acropora Garden", description: "School of chromis fish among Acropora corals", image: "/img/coral-acropora-fish-school.jpeg" },
+    { id: 7, category: "coral", title: "Butterflyfish Haven", description: "Butterflyfish swimming through branching corals", image: "/img/coral-acropora-butterflyfish.jpeg" },
+    { id: 8, category: "coral", title: "Purple Acropora", description: "Stunning purple-tipped Acropora corals", image: "/img/coral-purple-acropora.jpeg" },
+    { id: 9, category: "coral", title: "Colorful Reef", description: "Multi-colored coral colonies", image: "/img/coral-colorful-reef.jpeg" },
+    { id: 10, category: "fish", title: "Clownfish Family", description: "Clownfish in their host anemone", image: "/img/fish-clownfish-anemone.jpeg" },
+    { id: 11, category: "coral", title: "Reef Ecosystem", description: "Diverse coral reef with tropical fish", image: "/img/coral-reef-with-fish-2.jpeg" },
+    { id: 12, category: "coral", title: "Pink Reef Paradise", description: "Pink corals with green chromis fish", image: "/img/coral-pink-reef-chromis.jpeg" },
+    { id: 13, category: "underwater", title: "Coral Panorama", description: "Wide view of Lembata coral reef", image: "/img/underwater-coral-panorama.jpeg" },
+    { id: 14, category: "coral", title: "Plate Coral", description: "Beautiful plate coral formation", image: "/img/coral-plate-coral.jpeg" },
+    { id: 15, category: "underwater", title: "Diverse Reef", description: "Various coral species on the reef", image: "/img/underwater-diverse-reef.jpeg" },
+    { id: 16, category: "coral", title: "Blue Coral Colonies", description: "Distinctive blue coral formations", image: "/img/coral-blue-colonies.jpeg" },
+    { id: 17, category: "fish", title: "Chromis School", description: "Green chromis swimming over corals", image: "/img/fish-chromis-school.jpeg" },
+    { id: 18, category: "lembata", title: "Moonlit Sea", description: "Full moon over Lembata waters", image: "/img/lembata-moonlight-sea.jpeg" },
+    { id: 19, category: "lembata", title: "Sunset Boat", description: "Traditional boat under golden sunset", image: "/img/lembata-sunset-boat.jpeg" },
+    { id: 20, category: "lembata", title: "Mountain Sunset", description: "Sunset view with Lembata mountain", image: "/img/lembata-sunset-mountain.jpeg" },
   ];
 
   const filteredItems = selectedCategory === "all" 
@@ -67,15 +80,19 @@ export default function Gallery() {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
+                onClick={() => setSelectedImage(item)}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer group"
               >
-                <div className="relative h-64 bg-gradient-to-br from-blue-400 to-cyan-300">
-                  <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold group-hover:opacity-0 transition">
-                    {item.title}
-                  </div>
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <div className="relative h-64">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                     <div className="text-white text-center p-4">
-                      <p className="text-sm">Click to view full size</p>
+                      <p className="text-sm font-medium">Click to view full size</p>
                     </div>
                   </div>
                 </div>
@@ -154,6 +171,39 @@ export default function Gallery() {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10"
+          >
+            &times;
+          </button>
+          <div 
+            className="relative max-w-5xl w-full max-h-[85vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-[70vh]">
+              <Image
+                src={selectedImage.image}
+                alt={selectedImage.title}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1280px) 100vw, 1280px"
+              />
+            </div>
+            <div className="text-center mt-4 text-white">
+              <h3 className="text-2xl font-bold">{selectedImage.title}</h3>
+              <p className="text-gray-300 mt-2">{selectedImage.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

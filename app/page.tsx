@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import ServiceModal from "@/components/ServiceModal";
 
 export default function Home() {
@@ -11,48 +12,48 @@ export default function Home() {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80",
+      image: "/img/coral-colorful-reef.jpeg",
       caption: "Vibrant coral reefs in Lembata waters, East Nusa Tenggara - home to diverse marine ecosystems in the Coral Triangle."
     },
     {
-      image: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1200&q=80",
+      image: "/img/coral-acropora-fish-school.jpeg",
       caption: "Marine biodiversity sampling in Lembata - documenting species presence and abundance using standardized transect methodologies."
     },
     {
-      image: "https://www.google.com/maps/about/images/treks/reef3-carousel.jpg",
-      caption: "Deep reef team specialists collecting data in the mesophotic zone (30m-100m) - similar methods used in Lembata research."
+      image: "/img/conservation-coral-planting-1.jpeg",
+      caption: "Coral restoration and conservation efforts - planting new coral colonies to rebuild reef ecosystems."
     },
     {
-      image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1200&q=80",
+      image: "/img/underwater-coral-panorama.jpeg",
       caption: "Underwater surveys in Lembata document habitat characteristics and coral health across spatial gradients."
     },
     {
-      image: "https://www.google.com/maps/about/images/treks/reef5-carousel.jpg",
-      caption: "Field researchers photographing marine life - advanced imaging techniques applied to Lembata biodiversity documentation."
+      image: "/img/fish-clownfish-anemone.jpeg",
+      caption: "Clownfish in their host anemone - symbiotic relationships that define healthy reef ecosystems."
     },
     {
       image: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=1200&q=80",
-      caption: "Sea turtles are among the megafauna species monitored in Lembata's marine protected areas."
+      caption: "Sea turtles are among the megafauna species monitored in marine protected areas worldwide."
     },
     {
-      image: "https://www.google.com/maps/about/images/treks/reef6-carousel.jpg",
-      caption: "Flora and fauna imagery from Coral Triangle ecosystems - representing the biodiversity found in Lembata waters."
+      image: "/img/coral-purple-acropora.jpeg",
+      caption: "Purple Acropora corals - keystone species supporting biodiversity in tropical reef systems."
     },
     {
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80",
-      caption: "Diverse fish communities thrive in Lembata's reef systems, tracked through visual surveys and eDNA sampling."
+      image: "/img/fish-chromis-school.jpeg",
+      caption: "Diverse fish communities thrive in healthy reef systems, tracked through visual surveys and eDNA sampling."
     },
     {
-      image: "https://www.google.com/maps/about/images/treks/reef9-carousel.jpg",
-      caption: "Schooling fish behavior observed in Coral Triangle waters - similar ecosystems to Lembata marine environments."
+      image: "/img/lembata-sunset-boat.jpeg",
+      caption: "Traditional fishing boat at sunset - where marine research meets local community engagement."
     },
     {
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80",
-      caption: "Healthy coral formations in Lembata provide critical habitat for marine biodiversity."
+      image: "/img/underwater-diverse-reef.jpeg",
+      caption: "Healthy coral formations provide critical habitat for marine biodiversity."
     },
     {
-      image: "https://images.unsplash.com/photo-1682686581556-32f74e235d2e?w=1200&q=80",
-      caption: "Sunset over Lembata Island waters - the intersection of marine research and natural beauty in East Nusa Tenggara."
+      image: "/img/lembata-sunset-mountain.jpeg",
+      caption: "Sunset over Lembata Island - the intersection of marine research and natural beauty in East Nusa Tenggara."
     },
   ];
 
@@ -83,108 +84,253 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1920&q=80)',
+            backgroundImage: 'url(/img/underwater-coral-panorama.jpeg)',
             transform: mounted ? `translateY(${scrollY * 0.5}px)` : 'translateY(0)',
             height: '120%',
           }}
           suppressHydrationWarning
         >
-          {/* Dark Overlay for text readability */}
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         </div>
         
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
-          <h1 className="text-4xl md:text-7xl font-light text-white mb-4 md:mb-6 leading-tight">
-            Marine Biodiversity<br className="hidden md:block" />
-            <span className="md:hidden"> </span>in the Coral Triangle
-          </h1>
-          <div className="border-b-2 border-white w-24 md:w-32 mb-6 md:mb-8"></div>
-          <p className="text-base md:text-xl text-white/90 max-w-xl md:max-w-2xl mb-8 md:mb-10 leading-relaxed">
-            <span className="block md:inline">Advanced research services </span>
-            <span className="hidden md:inline">for documenting and understanding marine ecosystems </span>
-            <span className="md:hidden">in Lembata, </span>
-            <span className="hidden md:inline">in Lembata, East Nusa Tenggara.</span>
-            <span className="md:hidden">East Nusa Tenggara</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <a
-              href="#services"
-              className="inline-block text-center bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-lg text-sm font-medium transition shadow-lg hover:shadow-xl"
-            >
-              Our Services
-            </a>
-            <a
-              href="#explore"
-              className="inline-block text-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 md:px-8 py-3 rounded-lg text-sm font-medium transition"
-            >
-              Explore
-            </a>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center pt-16">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight">
+              Making Biodiversity<br />
+              <span className="text-cyan-400">Count</span> in Financial<br />
+              Decisions
+            </h1>
+            <div className="border-b-2 border-cyan-400 w-24 md:w-32 mb-6 md:mb-8"></div>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8 md:mb-10 leading-relaxed">
+              Advanced research services for documenting and understanding ecosystems around the Globe, starting from Lembata, East Nusa Tenggara.
+            </p>
+            <p className="text-base text-white/70 mb-8 max-w-xl">
+              Because when nature is valued, it gets protected. When it&apos;s measured, it gets funded.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <a
+                href="#services"
+                className="inline-block text-center bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full text-sm font-semibold transition shadow-lg hover:shadow-xl"
+              >
+                Our Services
+              </a>
+              <a
+                href="#explore"
+                className="inline-block text-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-3 rounded-full text-sm font-semibold transition"
+              >
+                Explore Gallery
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do Section */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
+                What We Do
+              </h2>
+              <div className="border-b-2 border-cyan-500 w-24 mb-8"></div>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                From lush forests and seagrass meadows to coral reefs and hidden biodiversity hotspots, 
+                we turn biodiversity data into actionable insights for NGOs, corporations, and financial institutions.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Unlocking the capital needed to protect our planet&apos;s most vital ecosystems.
+              </p>
+              <p className="text-xl font-medium text-gray-900 italic">
+                Econexus turns biodiversity into measurable, investable insight. Bridging science and finance to protect what matters most.
+              </p>
+            </div>
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/img/coral-blue-colonies.jpeg"
+                alt="Blue coral colonies"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 py-20 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">How It Works</h2>
+          <div className="border-b-2 border-cyan-400 w-24 mb-16 mx-auto"></div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Measure */}
+            <div className="text-center group">
+              <div className="relative h-64 mb-6 rounded-xl overflow-hidden">
+                <Image
+                  src="/img/conservation-reef-restoration-1.jpeg"
+                  alt="Biodiversity measurement"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="text-cyan-400 text-5xl font-bold">01</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4 text-cyan-400">Measure</h3>
+              <p className="text-gray-300 leading-relaxed">
+                From forest to seagrass beds, we assess species richness and carbon lock-in across 
+                key habitats using non-invasive eDNA methods.
+              </p>
+            </div>
+
+            {/* Translate */}
+            <div className="text-center group">
+              <div className="relative h-64 mb-6 rounded-xl overflow-hidden">
+                <Image
+                  src="/img/coral-pink-reef-chromis.jpeg"
+                  alt="Data translation"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="text-cyan-400 text-5xl font-bold">02</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4 text-cyan-400">Translate</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Using bioinformatics and global standards, we turn ecological data into metrics that matter: 
+                biodiversity scores, Mean Species Abundance, carbon equivalence, ecosystem service value.
+              </p>
+            </div>
+
+            {/* Mobilize */}
+            <div className="text-center group">
+              <div className="relative h-64 mb-6 rounded-xl overflow-hidden">
+                <Image
+                  src="/img/conservation-coral-planting-1.jpeg"
+                  alt="Conservation mobilization"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <span className="text-cyan-400 text-5xl font-bold">03</span>
+                </div>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4 text-cyan-400">Mobilize</h3>
+              <p className="text-gray-300 leading-relaxed">
+                We help you apply these insights for bond KPIs, ESG impact reports, 
+                or grassroots-led conservation planning.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Preview Section */}
-      <section id="services" className="bg-gray-50 py-16">
+      <section id="services" className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-light text-gray-900 mb-4 text-center">
-            Skill Sets We Offer
+          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 text-center">
+            Our Services
           </h2>
-          <div className="border-b-2 border-blue-600 w-32 mb-12 mx-auto"></div>
+          <div className="border-b-2 border-cyan-500 w-24 mb-16 mx-auto"></div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
-              <div className="text-4xl mb-4">🗺️</div>
-              <h3 className="text-2xl font-light text-gray-900 mb-4">
-                Biodiversity Sampling & Mapping
-              </h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                The skill of collecting biological data from the ocean—such as species observations, 
-                water samples, and habitat characteristics—and translating it into spatial maps.
-              </p>
-              <button 
-                onClick={() => setActiveModal('biodiversity')}
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
-              >
-                Learn more →
-              </button>
+            {/* Service 1 - Biodiversity Sampling */}
+            <div 
+              onClick={() => setActiveModal('biodiversity')}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition cursor-pointer group"
+            >
+              <div className="relative h-56">
+                <Image
+                  src="/img/underwater-seagrass-bed.jpeg"
+                  alt="Biodiversity Sampling"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-4xl">🗺️</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Biodiversity Sampling & Mapping
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Collecting biological data from ecosystems and translating it into spatial maps 
+                  using transects, underwater surveys, drones, and sonar.
+                </p>
+                <span className="text-cyan-600 font-medium text-sm group-hover:underline">
+                  Learn more →
+                </span>
+              </div>
             </div>
 
-            {/* Service 2 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
-              <div className="text-4xl mb-4">🌐</div>
-              <h3 className="text-2xl font-light text-gray-900 mb-4">
-                Creation of a Digital Twin
-              </h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Building a virtual, data-driven replica of a marine ecosystem that updates as new 
-                information comes in to simulate ocean conditions and conservation scenarios.
-              </p>
-              <button 
-                onClick={() => setActiveModal('digitaltwin')}
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
-              >
-                Learn more →
-              </button>
+            {/* Service 2 - Digital Twin */}
+            <div 
+              onClick={() => setActiveModal('digitaltwin')}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition cursor-pointer group"
+            >
+              <div className="relative h-56">
+                <Image
+                  src="/img/coral-reef-with-fish-2.jpeg"
+                  alt="Digital Twin Coral Reef"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-4xl">🌐</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Creation of a Digital Twin
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Building virtual, data-driven replicas of marine ecosystems that update in real-time 
+                  to simulate conditions and conservation scenarios.
+                </p>
+                <span className="text-cyan-600 font-medium text-sm group-hover:underline">
+                  Learn more →
+                </span>
+              </div>
             </div>
 
-            {/* Service 3 */}
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition cursor-pointer group">
-              <div className="text-4xl mb-4">🧬</div>
-              <h3 className="text-2xl font-light text-gray-900 mb-4">
-                eDNA Analysis
-              </h3>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                A method of detecting species by analyzing tiny genetic traces they leave behind in 
-                seawater—such as skin cells, waste, or mucus—enabling non-invasive identification.
-              </p>
-              <button 
-                onClick={() => setActiveModal('edna')}
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:underline"
-              >
-                Learn more →
-              </button>
+            {/* Service 3 - eDNA */}
+            <div 
+              onClick={() => setActiveModal('edna')}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition cursor-pointer group"
+            >
+              <div className="relative h-56">
+                <Image
+                  src="/img/coral-plate-coral.jpeg"
+                  alt="eDNA Analysis"
+                  fill
+                  className="object-cover group-hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-4xl">🧬</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  eDNA Analysis
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Detecting species by analyzing genetic traces in water, enabling non-invasive 
+                  identification of marine life including rare organisms.
+                </p>
+                <span className="text-cyan-600 font-medium text-sm group-hover:underline">
+                  Learn more →
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -196,7 +342,7 @@ export default function Home() {
         onClose={() => setActiveModal(null)}
         title="Biodiversity Sampling & Mapping"
         icon="🗺️"
-        image="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&q=80"
+        image="/img/underwater-seagrass-bed.jpeg"
         generalDescription={[
           "The skill of collecting biological data from the ocean—such as species observations, water samples, and habitat characteristics—and translating it into spatial maps.",
           "It includes using tools like transects, underwater surveys, drones, and sonar to document what lives where, how populations change over time, and which areas are ecologically sensitive or under threat."
@@ -214,7 +360,7 @@ export default function Home() {
         onClose={() => setActiveModal(null)}
         title="Creation of a Digital Twin"
         icon="🌐"
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80"
+        image="/img/coral-reef-with-fish-2.jpeg"
         generalDescription={[
           "Building a virtual, data-driven replica of a marine ecosystem that updates as new information comes in.",
           "A digital twin can simulate ocean conditions, species movement, human impact (e.g., fishing, pollution), and conservation scenarios—allowing stakeholders to test decisions before acting in the real environment."
@@ -232,7 +378,7 @@ export default function Home() {
         onClose={() => setActiveModal(null)}
         title="eDNA (Environmental DNA) Analysis"
         icon="🧬"
-        image="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&q=80"
+        image="/img/coral-plate-coral.jpeg"
         generalDescription={[
           "A method of detecting species by analyzing tiny genetic traces they leave behind in seawater—such as skin cells, waste, or mucus.",
           "It enables non-invasive identification of marine species, including rare or hard-to-observe organisms. It helps track biodiversity changes quickly across large areas without the need for traditional capture or visual surveys."
@@ -245,135 +391,221 @@ export default function Home() {
         ]}
       />
 
+      {/* We Help You Section */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl p-8 md:p-12 text-white">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-light mb-6">We Help You</h2>
+                <p className="text-lg leading-relaxed mb-6 text-white/90">
+                  Measure biodiversity and carbon lock-in across forests, reefs, and seagrass meadows — 
+                  turning nature into data that drives action.
+                </p>
+                <p className="text-base leading-relaxed text-white/80 mb-8">
+                  Whether you&apos;re an NGO co-creating community research, a company strengthening ESG 
+                  and nature-positive strategies, or a financial institution setting KPIs for 
+                  sustainability-linked bonds, Econexus gives you the insight to make nature count 
+                  where it matters most.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="https://www.econexus.ai/metrics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
+                  >
+                    Explore Metrics
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-block text-center border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition"
+                  >
+                    Say Hello!
+                  </a>
+                </div>
+              </div>
+              <div className="relative h-72 md:h-80 rounded-2xl overflow-hidden">
+                <Image
+                  src="/img/coral-acropora-butterflyfish.jpeg"
+                  alt="Marine ecosystem"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* View from Lembata - Photo Grid */}
-      <section id="explore" className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-light text-gray-900 mb-8">View from Lembata</h2>
+      <section id="explore" className="max-w-7xl mx-auto px-6 py-20">
+        <h2 className="text-4xl font-light text-gray-900 mb-4 text-center">View from Lembata</h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Marine biodiversity in Lembata waters, East Nusa Tenggara - our first research site in the Coral Triangle
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
-              alt="Vibrant coral reef in Lembata waters"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/coral-colorful-reef.jpeg"
+              alt="Colorful coral reef in Lembata"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
           
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800&q=80"
-              alt="Tropical fish in Coral Triangle"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/coral-acropora-fish-school.jpeg"
+              alt="Fish school among Acropora"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
           
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=80"
-              alt="Underwater survey in Lembata"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/coral-acropora-butterflyfish.jpeg"
+              alt="Butterflyfish among Acropora corals"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
           
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=800&q=80"
-              alt="Sea turtle in Lembata waters"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/fish-clownfish-anemone.jpeg"
+              alt="Clownfish in anemone"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
           
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
-              alt="Marine biodiversity"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/conservation-artificial-reef-1.jpeg"
+              alt="Artificial reef conservation"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
           
-          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
-              alt="Coral ecosystem research"
-              className="w-full h-full object-cover"
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/underwater-coral-panorama.jpeg"
+              alt="Underwater coral panorama"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/conservation-coral-planting-1.jpeg"
+              alt="Coral planting conservation"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/lembata-sunset-boat.jpeg"
+              alt="Sunset boat in Lembata"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div className="relative h-64 bg-gray-200 rounded-xl overflow-hidden group">
+            <Image 
+              src="/img/lembata-moonlight-sea.jpeg"
+              alt="Moonlight sea in Lembata"
+              fill
+              className="object-cover group-hover:scale-105 transition duration-300"
             />
           </div>
         </div>
         
-        <div className="mt-6 text-center">
-          <p className="text-gray-600 mb-2">Marine biodiversity in Lembata waters, East Nusa Tenggara</p>
+        <div className="mt-8 text-center">
           <a 
-            href="https://www.google.com/maps/place/Lembata+Dive+Operator/@-8.3672702,123.4423796,3a,74.7y/data=!3m8!1e2!3m6!1sAF1QipMAfl1JVvnHyToXDJbyYtatCCURliT36u8MBkpA!2e10!3e12" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline text-sm"
+            href="/gallery"
+            className="inline-block bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition"
           >
-            View Lembata location on Google Maps →
+            View Full Gallery
           </a>
         </div>
       </section>
 
       {/* Experience the Journey - Carousel */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-light text-gray-900 mb-12">Experience the journey</h2>
-        
-        <div className="relative">
-          {/* Main Image */}
-          <div className="relative h-96 md:h-[500px] bg-gray-200 rounded-lg overflow-hidden">
-            <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].caption}
-              className="w-full h-full object-cover"
-            />
-            
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Caption */}
-          <div className="mt-6 text-center">
-            <p className="text-gray-700">{slides[currentSlide].caption}</p>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center space-x-2 mt-6">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition ${
-                  index === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-300'
-                }`}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-light text-gray-900 mb-12 text-center">Experience the Journey</h2>
+          
+          <div className="relative">
+            {/* Main Image */}
+            <div className="relative h-96 md:h-[500px] bg-gray-200 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].caption}
+                fill
+                className="object-cover"
               />
-            ))}
+              
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Caption */}
+            <div className="mt-6 text-center">
+              <p className="text-gray-700">{slides[currentSlide].caption}</p>
+            </div>
+
+            {/* Dots Navigation */}
+            <div className="flex justify-center space-x-2 mt-6">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition ${
+                    index === currentSlide ? 'bg-cyan-600 w-8' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Street View Section */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-light text-gray-900 mb-8">
-          Trek Lembata Ocean with Street View
+      {/* Global Presence - World Map */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <h2 className="text-4xl font-light text-gray-900 mb-4 text-center">
+          Our Global Presence
         </h2>
+        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          Starting from Lembata, East Nusa Tenggara - expanding our research to protect ecosystems worldwide
+        </p>
         
-        <div className="relative bg-gray-200 rounded-lg overflow-hidden" style={{ height: '600px' }}>
+        <div className="relative bg-gray-200 rounded-2xl overflow-hidden shadow-xl" style={{ height: '500px' }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!4v1732639200000!6m8!1m7!1sIEWzE8prCABlGRETmL_lBw!2m2!1d-8.367051392936703!2d123.4422506166996!3f230.07!4f-15.64!5f0.7"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d63725770.09159568!2d100!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1732639300000!5m2!1sen!2sid"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -383,47 +615,51 @@ export default function Home() {
           ></iframe>
         </div>
         
-        <div className="mt-6 text-center">
-          <p className="text-gray-600 mb-2">Interactive 360° Street View - Lembata Dive Operator</p>
-          <a 
-            href="https://www.google.com/maps/place/Lembata+Dive+Operator/@-8.3670514,123.4422506,3a,75y,230.07h,74.64t/data=!3m7!1e1!3m5!1sIEWzE8prCABlGRETmL_lBw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D15.363349530520537%26panoid%3DIEWzE8prCABlGRETmL_lBw%26yaw%3D230.0698271363538!7i16384!8i8192!4m13!1m2!2m1!1slembata+ocean" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded text-sm font-medium transition"
-          >
-            Open in Google Maps
-          </a>
-        </div>
-      </section>
-
-      {/* Google Maps Section - Lembata Dive Operator */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-light text-gray-900 mb-8">
-          Location: Lembata Island, East Nusa Tenggara
-        </h2>
-        
-        <div className="relative bg-gray-200 rounded-lg overflow-hidden" style={{ height: '500px' }}>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.8885688347577!2d123.43979831477422!3d-8.367270284205804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dab732458fd783b%3A0xef972acd3a055f12!2sLembata%20Dive%20Operator!5e0!3m2!1sen!2sid!4v1732639300000!5m2!1sen!2sid"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        
-        <div className="mt-6 text-center">
-          <p className="text-gray-600 mb-2">
-            <strong>Lembata Dive Operator</strong> - Research Base Location
-          </p>
-          <p className="text-sm text-gray-500 mb-4">
-            Coordinates: 8°22&apos;02.2&quot;S 123°26&apos;32.6&quot;E
+        <div className="mt-8 text-center">
+          <p className="text-gray-600 mb-4">
+            <strong>Current Research Site:</strong> Lembata Island, East Nusa Tenggara, Indonesia
           </p>
           <p className="text-sm text-gray-500">
-            Located in the heart of the Coral Triangle, the world&apos;s epicenter of marine biodiversity
+            Located in the heart of the Coral Triangle - the world&apos;s epicenter of marine biodiversity
           </p>
+        </div>
+      </section>
+
+      {/* The Understory Section */}
+      <section className="bg-gray-900 py-20 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-80 rounded-2xl overflow-hidden">
+              <Image
+                src="/img/coral-purple-acropora.jpeg"
+                alt="The Understory"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-light mb-6">
+                Biodiversity Can Sound Complicated.<br />
+                <span className="text-cyan-400">We Make It Human.</span>
+              </h2>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Science is full of big words — MSA, Functional Diversity, Ecosystem Resilience.
+              </p>
+              <p className="text-gray-300 leading-relaxed mb-8">
+                At Econexus, we believe you don&apos;t need a biology degree to care about the planet.
+                That&apos;s why we created <strong className="text-white">The Understory</strong> — a space 
+                where complex ideas grow into simple, powerful stories.
+              </p>
+              <a
+                href="https://www.econexus.ai/blog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold transition"
+              >
+                Step into The Understory
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

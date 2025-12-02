@@ -39,9 +39,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://www.econexus.ai/blog" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition text-sm">
-                  The Understory Blog
-                </a>
+                <Link href="/about" className="text-gray-400 hover:text-white transition text-sm">
+                  The Understory
+                </Link>
               </li>
             </ul>
           </div>
@@ -66,9 +66,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://www.econexus.ai/metrics" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition text-sm">
+                <Link href="/services" className="text-gray-400 hover:text-white transition text-sm">
                   Biodiversity Metrics
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -83,9 +83,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://www.econexus.ai/get-involved" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition text-sm">
+                <Link href="/contact" className="text-gray-400 hover:text-white transition text-sm">
                   Get Involved
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="mailto:hello@econexus.ai" className="text-gray-400 hover:text-white transition text-sm">

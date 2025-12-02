@@ -410,12 +410,10 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://www.econexus.ai/metrics"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/services"
                     className="inline-block text-center bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
                   >
-                    Explore Metrics
+                    Explore Services
                   </a>
                   <a
                     href="/contact"
@@ -651,12 +649,10 @@ export default function Home() {
                 where complex ideas grow into simple, powerful stories.
               </p>
               <a
-                href="https://www.econexus.ai/blog"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/about"
                 className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold transition"
               >
-                Step into The Understory
+                Learn More About Us
               </a>
             </div>
           </div>
